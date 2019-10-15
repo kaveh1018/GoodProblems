@@ -11,7 +11,7 @@ import Foundation
 
 let arr = [1,2,3,[1.1,[4.3,5,[1:"test","car":"bood"]],2,[]]] as [Any]
 
-func superItratpr<T>(_ arr:T){
+func superItrator<T>(_ arr:T){
     
     guard let num = arr as? Array<Any>  else {
         guard let dic = arr as? [AnyHashable:Any] else {
@@ -34,4 +34,4 @@ func superItratpr<T>(_ arr:T){
   
 }
 
-superItratpr(arr)
+superItrator(arr)
