@@ -11,11 +11,11 @@ import Foundation
 
 let arr = [1,2,3,[1.1,[4.3,5,[1:"test","car":"bood"]],2,[]]] as [Any]
 
-func superItrator<T>(_ arr:T){
+func superItratpr<T>(_ arr:T, _ visit:(Any)->Void){
     
     guard let num = arr as? Array<Any>  else {
         guard let dic = arr as? [AnyHashable:Any] else {
-            print(arr)
+            visit(arr)
             return
         }
         
@@ -29,9 +29,12 @@ func superItrator<T>(_ arr:T){
     }
 
     num.forEach { (el) in
-        superItratpr(el)
+        superItratpr(el,visit)
     }
   
 }
 
-superItrator(arr)
+superItratpr(arr){ el in
+    print(el)
+}
+
